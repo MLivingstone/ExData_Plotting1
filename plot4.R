@@ -23,10 +23,11 @@ mydf <- tbl_df(rawdata) %>%
 
 mydf$datetime <-strptime(mydf$datetime,"%Y-%m-%d %H:%M:%S")
 
+png(filename="plot4.png", width=480, height=480)
 par(mfrow=c(2,2))
 
 ## Plot 1
-plot(mydf$datetime,mydf$Global_active_power,type="l", ylab = "Global Active Power")
+plot(mydf$datetime,mydf$Global_active_power,type="l", xlab = "", ylab = "Global Active Power")
 
 ## Plot 2
 plot(mydf$datetime,mydf$Voltage,type="l", xlab ="datetime", ylab = "Voltage")
@@ -46,9 +47,4 @@ legend("topright",lty=1,
 ## Plot 4
 plot(mydf$datetime,mydf$Global_reactive_power,type="l", xlab ="datetime", ylab = "Global_reactive_power")
 
-
-# Copy to local png file
-dev.copy(png,file="plot4.png")
 dev.off()
-
-

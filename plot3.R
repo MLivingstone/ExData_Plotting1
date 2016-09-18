@@ -26,7 +26,8 @@ mydf <- tbl_df(rawdata) %>%
 
 mydf$datetime <-strptime(mydf$datetime,"%Y-%m-%d %H:%M:%S")
 
-# Plot graph and copy to local png file
+# Plot histogram to local png file in same folder
+png(filename="plot3.png", width=480, height=480)
 with(mydf, {
   plot(datetime,Sub_metering_1,type="l", xlab="", ylab = "Energy sub metering")
   points(datetime,Sub_metering_2,type="l",col="red")
@@ -34,10 +35,6 @@ with(mydf, {
 })
 legend("topright",lty=1,
        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
-       col=c("black","red","blue"),
-       inset=c(0.1,0,0,0), y.intersp = 1.2, bty="n")
+       col=c("black","red","blue"))
 
-dev.copy(png,file="plot3.png")
 dev.off()
-
-

@@ -26,10 +26,10 @@ mydf <- tbl_df(rawdata) %>%
 
 mydf$datetime <-strptime(mydf$datetime,"%Y-%m-%d %H:%M:%S")
 
-# Plot graph and copy to local png file
+# Plot histogram to local png file in same folder
+png(filename="plot2.png", width=480, height=480)
 plot(mydf$datetime,mydf$Global_active_power,type="l", xlab ="", ylab = "Global Active Power (kilowatts)")
 
-dev.copy(png,file="plot2.png")
 dev.off()
 
 

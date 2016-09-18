@@ -23,12 +23,12 @@ mydf <- tbl_df(rawdata) %>%
   mutate(Date = as.Date(Date, "%d/%m/%Y")) %>%
   filter(Date >="2007-02-01" & Date <= "2007-02-02") 
 
-# Plot histogram and copy to png file in same folder
+# Plot histogram to local png file in same folder
+png(filename="plot1.png", width=480, height=480)
 hist(mydf$Global_active_power, 
      main="Global Active Power",
      xlab = "Global Active Power (kilowatts)",col = "red")
 
-dev.copy(png,file="plot1.png")
 dev.off()
 
 
